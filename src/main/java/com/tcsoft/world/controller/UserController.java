@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public User get(@PathVariable("id") int id) throws Exception {
         System.out.println(id);
-        User u=userService.get(id);
+        User u = userService.get(id);
         return u;
     }
 
@@ -35,11 +35,13 @@ public class UserController {
         userService.add(u);
         return "success";
     }
+
     @DeleteMapping("/users/{id}")
     public String delete(User u) throws Exception {
         userService.delete(u.getId());
         return "success";
     }
+
     @PutMapping("/users/{id}")
     public String update(@RequestBody User u) throws Exception {
         userService.update(u);
@@ -47,14 +49,14 @@ public class UserController {
     }
 
     /*页面跳转 部分*/
-    @RequestMapping(value="/listUser", method=RequestMethod.GET)
-    public ModelAndView listUser(){
+    @RequestMapping(value = "/listUser", method = RequestMethod.GET)
+    public ModelAndView listUser() {
         ModelAndView mv = new ModelAndView("listUser");
         return mv;
     }
 
-    @RequestMapping(value="/editUser", method=RequestMethod.GET)
-    public ModelAndView editUser(){
+    @RequestMapping(value = "/editUser", method = RequestMethod.GET)
+    public ModelAndView editUser() {
         ModelAndView mv = new ModelAndView("editUser");
         return mv;
     }
